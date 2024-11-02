@@ -13,7 +13,7 @@ const sidebarItemVariants= cva(
         variants:{
             variant:{
                 default:"text-[#f9edffcc]",
-                active:"text=[#481349] bg-white/90 hover:bg-white/90"
+                active:"text-black bg-white/90 hover:bg-white/90"
             }
         },
         defaultVariants:{
@@ -41,7 +41,7 @@ export const SidebarItem =({label,id,icon:Icon,variant}:SidebarItemProps)=>{
             {variant}
         ))}
         asChild>
-            <Link href={`/workspaces/${workspaceId}/channel/${id}`}>
+            <Link href={`/workspace/${workspaceId}/channel/${id}`}>
             <Icon className="size-3.5 mr-1 shrink-0"/>
             <span className="truncate text-sm">{label}</span>
 
