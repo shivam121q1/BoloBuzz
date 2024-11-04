@@ -1,20 +1,45 @@
 import { Button } from "@/components/ui/button";
 import Quill from "quill";
 import Qill, { QuillOptions } from "quill"
-import PiTextAa from "react-icons/pi"
+import { RiFontSize } from "react-icons/ri";
 import "quill/dist/quill.snow.css"
-import { useEffect, useRef } from "react"
+import { MutableRefObject, useEffect, useLayoutEffect, useRef } from "react"
 import { ImageIcon, SendIcon, Smile } from "lucide-react";
 import { Hint } from "./hint";
+import { Delta, Op } from "quill/core";
 
+
+type EditorValue ={
+  image:File| null;
+  body:string
+}
 interface EditorProps {
+  OnSubmit : ({image,body}:EditorValue) =>void;
+  OnCancel ?:()=>void;
+  placeholder?:string;
+  defaultValue?:Delta  | Op[];
+  disabled?:boolean;
+  innerRef?:MutableRefObject<Quill | null>;
   variant ?: "create" | "update"
 }
 
-const Editor = ({variant= "create"}:EditorProps) => {
+const Editor = ({
+  OnCancel,
+  OnSubmit,
+  placeholder="Write Something",
+  defaultValue=[],
+  innerRef,
+  disabled,
+  variant= "create"
+}:EditorProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
-
-
+    const submitRef = useRef(OnSubmit);
+    const placeholderRef = useRef(placeholder);
+    const quillRef= useRef<Quill |null>(null);
+    const disabledRef=useRef(disabled);
+    useLayoutEffect(()=>{
+      
+    })
     useEffect(()=>{
       if(!containerRef.current) return;
       console.log(containerRef.current)
@@ -50,7 +75,7 @@ const Editor = ({variant= "create"}:EditorProps) => {
             size="iconSm"
             variant="ghost"
             onClick={()=>{}}>
-                {/* <PiText className = "size-4" /> */}
+                <RiFontSize className = "size-4" />
 
             </Button>
 
