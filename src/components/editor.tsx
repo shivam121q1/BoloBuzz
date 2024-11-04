@@ -125,11 +125,14 @@ className="ml-auto bg-[#007a5a] hover:bg-[#007a5a]/80 text-white">
             
           </div>
         </div>
-       <div className="p-2 text-[10px] text-muted-foreground flex justify-end">
-       <p>
-          <strong>Shift + Return</strong> to add a new Line
-        </p>
-       </div>
+        
+           <div className="p-2 text-[10px] text-muted-foreground flex justify-end">
+           <p>
+              <strong>Shift + Return</strong> to add a new Line
+            </p>
+           </div>
+        
+      
 
       
     </div>
