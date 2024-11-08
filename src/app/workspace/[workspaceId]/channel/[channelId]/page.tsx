@@ -5,11 +5,16 @@ import { Loader, TriangleAlert } from 'lucide-react';
 import React from 'react'
 import Header from './Header';
 import ChatInput from './chat-input';
+import { useGetMessages } from '@/features/messages/api/use-get-messages';
 
 const ChannelIdPage = () => {
     const channelId = useChannelId();
+    
+    const {results} = useGetMessages({channelId});
     const {data:channel,isLoading:channelLoading} = useGetChannel({id:channelId})
-  if(channelLoading){
+ 
+     console.log(results)
+    if(channelLoading){
     return (
         <div className='h-full flex-1 flex items-center justify-center'>
             <Loader className='animate-spin size-5 text-muted-foreground' />

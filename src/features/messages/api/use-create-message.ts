@@ -9,6 +9,7 @@ type RequestType = {
      image?:Id<"_storage">,
      workspaceId:Id<"workspaces">,
      channelId?:Id<"channels">,
+     conversationId?:Id<"conversations">,
      parentMessageId?:Id<"messages">
 
  };
